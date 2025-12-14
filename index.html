@@ -6,27 +6,20 @@
     <title>Skin Victory Cup - Inscripción</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Variables CSS */
         :root {
             --primary-color: #0d0b16;
             --secondary-color: #1a1525;
             --accent-color: #8a2be2;
             --accent-light: #a855f7;
             --accent-dark: #6d28d9;
-            --light-color: #f3f4f6;
-            --dark-color: #0a0811;
             --text-color: #f0f0f0;
             --text-secondary: #c7c7d1;
-            --border-radius: 12px;
-            --spacing-sm: 12px;
-            --spacing-md: 24px;
-            --spacing-lg: 48px;
+            --border-radius: 16px;
+            --card-shadow: 0 10px 25px rgba(0,0,0,.4);
+            --glow-shadow: 0 0 30px rgba(138,43,226,.4);
             --transition: all 0.3s ease;
-            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            --glow-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
         }
 
-        /* Reset y estilos base */
         * {
             margin: 0;
             padding: 0;
@@ -35,135 +28,236 @@
         }
 
         body {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), #15102a);
             color: var(--text-color);
-            line-height: 1.6;
             min-height: 100vh;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.15) 0%, transparent 25%),
-                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 50% 50%, rgba(10, 8, 17, 0.9) 0%, rgba(13, 11, 22, 1) 100%);
+            line-height: 1.6;
         }
 
-        /* Contenedor principal */
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--spacing-md);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            margin: auto;
+            padding: 30px 20px;
         }
 
         /* Banner */
-        .banner-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: var(--spacing-lg);
-        }
-
         .banner {
             max-width: 900px;
-            width: 100%;
+            margin: 0 auto 40px;
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--card-shadow), var(--glow-shadow);
-            border: 1px solid rgba(138, 43, 226, 0.3);
+            transition: var(--transition);
+        }
+
+        .banner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,.5), 0 0 40px rgba(138,43,226,.5);
         }
 
         .banner img {
             width: 100%;
-            height: auto;
             display: block;
-            transition: var(--transition);
+            height: auto;
         }
 
-        .banner img:hover {
-            transform: scale(1.02);
-        }
-
-        /* Contenido principal */
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-lg);
-            flex: 1;
-        }
-º
-        /* Información del evento */
-        .event-info {
-            background-color: var(--secondary-color);
-            padding: var(--spacing-lg);
+        /* Secciones */
+        section {
+            background: var(--secondary-color);
+            margin: 30px 0;
+            padding: 40px;
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
-            border: 1px solid rgba(138, 43, 226, 0.2);
-            position: relative;
-            overflow: hidden;
+            border: 1px solid rgba(138,43,226,.15);
         }
 
-        .event-info::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+        section:hover {
+            border-color: rgba(138,43,226,.3);
         }
 
-        .event-info h2 {
+        h2 {
             color: var(--accent-light);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: 25px;
             font-size: 1.8rem;
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .event-info h2 i {
-            font-size: 1.5rem;
-            background: linear-gradient(45deg, var(--accent-color), var(--accent-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        h2 i {
+            font-size: 1.6rem;
         }
 
+        p {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+
+        strong {
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+
+        /* Contador mejorado */
+        .contador-pro {
+            background: linear-gradient(145deg, #1a1525, #0d0b16);
+            border-radius: var(--border-radius);
+            padding: 40px 20px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: var(--glow-shadow), inset 0 0 30px rgba(0,0,0,.5);
+            border: 1px solid rgba(168,85,247,.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contador-pro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+        }
+
+        .contador-tiempo {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .time-box {
+            background: rgba(138,43,226,.1);
+            padding: 25px 15px;
+            border-radius: 14px;
+            min-width: 100px;
+            box-shadow: inset 0 0 15px rgba(168,85,247,.2), 0 5px 15px rgba(0,0,0,.3);
+            border: 1px solid rgba(168,85,247,.15);
+            transition: var(--transition);
+        }
+
+        .time-box:hover {
+            transform: translateY(-5px);
+            box-shadow: inset 0 0 20px rgba(168,85,247,.3), 0 8px 20px rgba(0,0,0,.4);
+            border-color: rgba(168,85,247,.3);
+        }
+
+        .time-box span {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #a855f7;
+            display: block;
+            text-shadow: 0 0 10px rgba(168,85,247,.5);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .time-box small {
+            color: #c7c7d1;
+            font-size: .8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .contador-texto {
+            margin-top: 20px;
+            color: #c7c7d1;
+            font-size: 1rem;
+            letter-spacing: .5px;
+        }
+
+        .contador-texto strong {
+            color: var(--accent-light);
+            font-weight: 700;
+        }
+
+        /* Botón de inscripción */
+        .submit-btn {
+            margin-top: 25px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            border: none;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            font-size: 1.2rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(138,43,226,.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(138,43,226,.6);
+            background: linear-gradient(135deg, var(--accent-light), var(--accent-color));
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn i {
+            font-size: 1.3rem;
+        }
+
+        /* Contador para 2026 (oculto inicialmente) */
+        .contador-2026 {
+            display: none;
+            margin-top: 25px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .contador-2026 h3 {
+            color: var(--accent-light);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        /* Información del torneo mejorada */
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
         }
 
         .info-card {
-            background: rgba(26, 21, 37, 0.7);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-md);
+            background: rgba(138,43,226,.05);
+            padding: 25px;
+            border-radius: 12px;
             border-left: 4px solid var(--accent-color);
             transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            backdrop-filter: blur(5px);
         }
 
         .info-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.2);
-            border-left-color: var(--accent-light);
+            box-shadow: 0 10px 20px rgba(138,43,226,.2);
+            background: rgba(138,43,226,.1);
         }
 
         .info-card i {
             color: var(--accent-light);
-            font-size: 1.4rem;
-            margin-bottom: 5px;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: block;
         }
 
         .info-card strong {
-            color: var(--accent-light);
-            font-size: 1.1rem;
             display: block;
-            margin-bottom: 5px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent-light);
         }
 
         .info-card p {
@@ -171,401 +265,348 @@
             line-height: 1.5;
         }
 
+        /* Animaciones */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mensaje de buena suerte */
         .good-luck {
-            margin-top: var(--spacing-md);
-            padding: var(--spacing-md);
-            background: rgba(138, 43, 226, 0.1);
-            border-radius: var(--border-radius);
-            border-left: 4px solid var(--accent-light);
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(138,43,226,.05);
+            border-radius: 12px;
+            border: 1px solid rgba(168,85,247,.2);
             font-style: italic;
-            color: var(--text-color);
-            text-align: center;
-        }
-
-        /* Formulario */
-        .form-container {
-            background-color: var(--secondary-color);
-            padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(138, 43, 226, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .form-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
-        }
-
-        .form-container h2 {
-            color: var(--accent-light);
-            margin-bottom: var(--spacing-md);
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .form-container h2 i {
-            font-size: 1.5rem;
-            background: linear-gradient(45deg, var(--accent-color), var(--accent-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--text-color);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--border-radius);
-            color: var(--text-color);
-            font-size: 1rem;
-            transition: var(--transition);
-            backdrop-filter: blur(5px);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent-light);
-            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        .select-wrapper {
-            position: relative;
-        }
-
-        .select-wrapper i {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
             color: var(--text-secondary);
-            pointer-events: none;
-            z-index: 1;
         }
 
-        select.form-control {
-            appearance: none;
-            cursor: pointer;
-            padding-right: 50px;
-        }
-
-        select.form-control option {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            padding: 12px;
-        }
-
-        /* Botón de enviar */
-        .submit-btn {
-            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
-            color: white;
-            border: none;
-            padding: 18px 35px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: var(--transition);
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            margin-top: 10px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
-        }
-
-        .submit-btn:hover {
-            background: linear-gradient(135deg, var(--accent-dark), var(--accent-color));
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
-        }
-
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        /* Mensajes de estado */
-        .status-message {
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius);
-            margin-top: var(--spacing-md);
-            text-align: center;
-            display: none;
-            animation: fadeIn 0.5s ease-out;
-            backdrop-filter: blur(5px);
-        }
-
-        .success {
-            background: rgba(138, 43, 226, 0.15);
-            border: 1px solid var(--accent-light);
+        .good-luck i {
             color: var(--accent-light);
-        }
-
-        .error {
-            background: rgba(220, 38, 38, 0.15);
-            border: 1px solid #ef4444;
-            color: #f87171;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            margin-top: var(--spacing-lg);
-            padding: var(--spacing-md);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(138, 43, 226, 0.2);
-        }
-
-        #device-info {
-            margin-top: 8px;
-            font-size: 0.8rem;
-            color: var(--accent-light);
-            font-family: monospace;
-            background: rgba(138, 43, 226, 0.1);
-            padding: 6px 12px;
-            border-radius: 6px;
-            display: inline-block;
+            margin: 0 10px;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: var(--spacing-sm);
+                padding: 20px 15px;
             }
             
-            .event-info, .form-container {
-                padding: var(--spacing-md);
+            section {
+                padding: 30px 20px;
             }
             
-            .info-grid, .form-row {
+            .contador-tiempo {
+                gap: 15px;
+            }
+            
+            .time-box {
+                min-width: 80px;
+                padding: 20px 10px;
+            }
+            
+            .time-box span {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .info-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
-            .banner {
-                max-width: 100%;
+            .contador-2026 h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contador-tiempo {
+                gap: 10px;
             }
             
-            .form-row {
-                gap: var(--spacing-sm);
+            .time-box {
+                min-width: 70px;
+                padding: 15px 8px;
+            }
+            
+            .time-box span {
+                font-size: 1.8rem;
+            }
+            
+            .time-box small {
+                font-size: .7rem;
+            }
+            
+            .contador-texto {
+                font-size: .9rem;
+            }
+            
+            .good-luck {
+                font-size: 0.9rem;
+                padding: 15px;
             }
         }
 
-        /* Animaciones */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        /* Efectos de carga */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--accent-light);
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Efecto de brillo en elementos importantes */
-        .glow-effect {
-            position: relative;
-        }
-
-        .glow-effect::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--accent-color), var(--accent-light), var(--accent-color));
-            border-radius: calc(var(--border-radius) + 2px);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .glow-effect:hover::after {
-            opacity: 0.3;
+        /* Animación de pulso */
+        @keyframes pulse {
+            0% { 
+                box-shadow: inset 0 0 15px rgba(168,85,247,.2), 0 5px 15px rgba(0,0,0,.3);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: inset 0 0 20px rgba(168,85,247,.4), 0 5px 20px rgba(168,85,247,.5);
+                transform: scale(1.05);
+            }
+            100% { 
+                box-shadow: inset 0 0 15px rgba(168,85,247,.2), 0 5px 15px rgba(0,0,0,.3);
+                transform: scale(1);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="banner-container fade-in">
-            <div class="banner glow-effect">
-                <img src="NHXRK.png" alt="Skin Victory Cup Banner" id="tournament-banner">
-            </div>
-        </div>
 
-        <div class="main-content">
-            <section class="event-info fade-in">
-                <h2><i class="fas fa-trophy"></i> Información del Torneo</h2>
-                <p>La Skin Victory Cup contará con la participación de 30 jugadores seleccionados, quienes competirán a lo largo de 10 partidas intensas en modalidad Zone Wars.</p>
-                
-                <div class="info-grid">
-                    <div class="info-card">
-                        <i class="fas fa-award"></i>
-                        <strong>Premio Principal</strong>
-                        <p>Cualquier skin de su elección, valorada en hasta 1.500 V-Bucks o inferior.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <i class="fas fa-calendar-alt"></i>
-                        <strong>Fecha y Hora</strong>
-                        <p>4 de enero a las 18:00 (hora peninsular española).</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <i class="fas fa-globe-europe"></i>
-                        <strong>Región del Servidor</strong>
-                        <p>Europa - Para una experiencia de juego óptima para todos los participantes.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <i class="fas fa-user"></i>
-                        <strong>Modalidad de Juego</strong>
-                        <p>Solos - Cada jugador por su cuenta en intensas partidas Zone Wars.</p>
-                    </div>
-                </div>
-                
-                <div class="good-luck">
-                    <i class="fas fa-star"></i> Deseamos la mayor de las suertes a todos los participantes. <i class="fas fa-star"></i>
-                </div>
-            </section>
-
-            <section class="form-container fade-in">
-                <h2><i class="fas fa-file-signature"></i> Registro de Inscripción</h2>
-                
-                <form id="registration-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="full-name"><i class="fas fa-user"></i> Apodo *</label>
-                            <input type="text" id="full-name" class="form-control" placeholder="Ej: JOTA" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="discord-name"><i class="fab fa-discord"></i> Discord Name *</label>
-                            <input type="text" id="discord-name" class="form-control" placeholder="Ej: JuanPérez (sin #)" required>
-                            <small style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">Solo el nombre de usuario, sin el # y números</small>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="epic-name"><i class="fas fa-gamepad"></i> Nombre de Epic Games *</label>
-                            <input type="text" id="epic-name" class="form-control" placeholder="Ej: NinjaV123" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="region"><i class="fas fa-globe"></i> Región *</label>
-                            <div class="select-wrapper">
-                                <select id="region" class="form-control" required>
-                                    <option value="" disabled selected>Selecciona tu región principal</option>
-                                    <option value="Europa">Europa</option>
-                                    <option value="América del Norte">América del Norte</option>
-                                    <option value="América del Sur">América del Sur</option>
-                                    <option value="Asia">Asia</option>
-                                    <option value="Oceanía">Oceanía</option>
-                                </select>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="platform"><i class="fas fa-desktop"></i> Plataforma *</label>
-                            <div class="select-wrapper">
-                                <select id="platform" class="form-control" required>
-                                    <option value="" disabled selected>Selecciona tu plataforma principal</option>
-                                    <option value="PC">PC</option>
-                                    <option value="PlayStation 5">PlayStation 5</option>
-                                    <option value="PlayStation 4">PlayStation 4</option>
-                                    <option value="Xbox Series X|S">Xbox Series X|S</option>
-                                    <option value="Xbox One">Xbox One</option>
-                                    <option value="Nintendo Switch">Nintendo Switch</option>
-                                    <option value="Dispositivo Móvil">Dispositivo Móvil</option>
-                                </select>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="additional-info"><i class="fas fa-info-circle"></i> Información Adicional (opcional)</label>
-                            <input type="text" id="additional-info" class="form-control" placeholder="Experiencia previa, clan, etc.">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group" style="margin-top: var(--spacing-md);">
-                        <button type="submit" class="submit-btn glow-effect" id="submit-btn">
-                            <i class="fas fa-paper-plane"></i> Inscribirse en el Torneo
-                        </button>
-                    </div>
-                </form>
-                
-                <div id="status-message" class="status-message"></div>
-            </section>
-        </div>
-
-        <footer class="footer fade-in">
-            <p>Skin Victory Cup &copy; 2024 | Formulario de inscripción oficial</p>
-            <div id="device-info">Cargando información del dispositivo...</div>
-        </footer>
+<div class="container">
+    <div class="banner">
+        <img src="NHXRK.png" alt="Skin Victory Cup">
     </div>
 
-    <script>
-        // Aquí irá el JavaScript para manejar el formulario
-        // Se mantendrá separado en un archivo externo
-    </script>
+    <section class="event-info fade-in">
+        <h2><i class="fas fa-trophy"></i> Información del Torneo</h2>
+        <p>La Skin Victory Cup contará con la participación de 30 jugadores seleccionados, quienes competirán a lo largo de 10 partidas intensas en modalidad Zone Wars.</p>
+        
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-award"></i>
+                <strong>Premio Principal</strong>
+                <p>Cualquier skin de su elección, valorada en hasta 1.500 V-Bucks o inferior.</p>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-calendar-alt"></i>
+                <strong>Fecha y Hora</strong>
+                <p>4 de enero a las 18:00 (hora peninsular española).</p>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-globe-europe"></i>
+                <strong>Región del Servidor</strong>
+                <p>Europa - Para una experiencia de juego óptima para todos los participantes.</p>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-user"></i>
+                <strong>Modalidad de Juego</strong>
+                <p>Solos - Cada jugador por su cuenta en intensas partidas Zone Wars.</p>
+            </div>
+        </div>
+        
+        <div class="good-luck">
+            <i class="fas fa-star"></i> Deseamos la mayor de las suertes a todos los participantes. <i class="fas fa-star"></i>
+        </div>
+    </section>
+
+    <section class="fade-in">
+        <h2><i class="fas fa-file-signature"></i> Registro de Inscripción</h2>
+        
+        <div id="contador-box" class="contador-pro">
+            <div class="contador-tiempo">
+                <div class="time-box">
+                    <span id="dias">00</span>
+                    <small>DÍAS</small>
+                </div>
+                <div class="time-box">
+                    <span id="horas">00</span>
+                    <small>HORAS</small>
+                </div>
+                <div class="time-box">
+                    <span id="minutos">00</span>
+                    <small>MIN</small>
+                </div>
+                <div class="time-box">
+                    <span id="segundos">00</span>
+                    <small>SEG</small>
+                </div>
+            </div>
+            
+            <p class="contador-texto">
+                LAS INSCRIPCIONES SE ACTIVAN EL <strong>1 DE ENERO</strong>
+            </p>
+        </div>
+
+        <button id="submit-btn" class="submit-btn" style="display:none;">
+            <i class="fas fa-paper-plane"></i> Inscribirse en el Torneo
+        </button>
+        
+        <!-- Contador para 2026 (inicialmente oculto) -->
+        <div id="contador-2026" class="contador-2026">
+            <h3><i class="fas fa-calendar-plus"></i> Próximas Inscripciones</h3>
+            <div class="contador-pro">
+                <div class="contador-tiempo">
+                    <div class="time-box">
+                        <span id="dias-2026">00</span>
+                        <small>DÍAS</small>
+                    </div>
+                    <div class="time-box">
+                        <span id="horas-2026">00</span>
+                        <small>HORAS</small>
+                    </div>
+                    <div class="time-box">
+                        <span id="minutos-2026">00</span>
+                        <small>MIN</small>
+                    </div>
+                    <div class="time-box">
+                        <span id="segundos-2026">00</span>
+                        <small>SEG</small>
+                    </div>
+                </div>
+                
+                <p class="contador-texto">
+                    LAS INSCRIPCIONES SE ABREN EL <strong>1 DE ENERO DE 2026</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    // Configurar fechas: Inscripciones se activan el 1 de enero del año actual
+    const ahora = new Date();
+    const añoActual = ahora.getFullYear();
+    const inicio = new Date(añoActual, 0, 1); // 1 de enero del año actual
+    const fin = new Date(añoActual, 0, 4, 23, 59, 59); // 4 de enero para el torneo
     
-    <!-- Incluimos el archivo JS externo -->
-    <script src="form-handler.js"></script>
+    // Fecha para las inscripciones de 2026
+    const inicio2026 = new Date(2026, 0, 1); // 1 de enero de 2026
+
+    const box = document.getElementById('contador-box');
+    const btn = document.getElementById('submit-btn');
+    const contador2026 = document.getElementById('contador-2026');
+
+    // Variable para controlar si ya se hizo clic en "Inscripciones Cerradas"
+    let mostrarContador2026 = false;
+
+    function actualizarContador() {
+        const ahora = new Date();
+        
+        // Si ya es 1 de enero o después, mostrar botón de inscripción
+        if (ahora >= inicio) {
+            box.style.display = 'none';
+            btn.style.display = 'flex';
+            
+            // Si el torneo ya pasó, mostrar botón de "Inscripciones Cerradas"
+            if (ahora > fin) {
+                btn.innerHTML = '<i class="fas fa-calendar-times"></i> Inscripciones Cerradas';
+                btn.style.background = 'linear-gradient(135deg, #555, #777)';
+                btn.style.cursor = 'pointer';
+                
+                // Configurar el evento click para mostrar el contador 2026
+                btn.onclick = function() {
+                    if (!mostrarContador2026) {
+                        // Mostrar el contador para 2026
+                        contador2026.style.display = 'block';
+                        mostrarContador2026 = true;
+                        
+                        // Cambiar el texto del botón
+                        btn.innerHTML = '<i class="fas fa-eye-slash"></i> Ocultar Contador';
+                        btn.style.background = 'linear-gradient(135deg, #6d28d9, #8a2be2)';
+                        
+                        // Iniciar el contador para 2026
+                        iniciarContador2026();
+                    } else {
+                        // Ocultar el contador para 2026
+                        contador2026.style.display = 'none';
+                        mostrarContador2026 = false;
+                        
+                        // Restaurar el texto del botón
+                        btn.innerHTML = '<i class="fas fa-calendar-times"></i> Inscripciones Cerradas';
+                        btn.style.background = 'linear-gradient(135deg, #555, #777)';
+                    }
+                };
+            } else {
+                // El torneo aún no ha pasado, mostrar botón de inscripción normal
+                btn.onclick = function() {
+                    alert('¡Inscripción exitosa! Te has registrado en el Skin Victory Cup. Recibirás más información por correo electrónico.');
+                    this.innerHTML = '<i class="fas fa-check"></i> ¡Inscrito!';
+                    this.style.background = 'linear-gradient(135deg, #10b981, #34d399)';
+                    this.disabled = true;
+                };
+            }
+            return;
+        }
+        
+        // Calcular tiempo restante para las inscripciones actuales
+        const diferencia = inicio - ahora;
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+        
+        // Actualizar elementos del contador
+        document.getElementById('dias').textContent = String(dias).padStart(2, '0');
+        document.getElementById('horas').textContent = String(horas).padStart(2, '0');
+        document.getElementById('minutos').textContent = String(minutos).padStart(2, '0');
+        document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');
+        
+        // Efecto visual cuando faltan menos de 24 horas
+        if (dias === 0 && horas < 24) {
+            const timeBoxes = document.querySelectorAll('#contador-box .time-box');
+            timeBoxes.forEach(box => {
+                box.style.animation = 'pulse 1s infinite';
+            });
+        }
+    }
+
+    // Función para iniciar el contador hacia 2026
+    function iniciarContador2026() {
+        function actualizarContador2026() {
+            const ahora = new Date();
+            const diferencia = inicio2026 - ahora;
+            
+            // Calcular tiempo restante para 2026
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+            
+            // Actualizar elementos del contador 2026
+            document.getElementById('dias-2026').textContent = String(dias).padStart(2, '0');
+            document.getElementById('horas-2026').textContent = String(horas).padStart(2, '0');
+            document.getElementById('minutos-2026').textContent = String(minutos).padStart(2, '0');
+            document.getElementById('segundos-2026').textContent = String(segundos).padStart(2, '0');
+            
+            // Efecto visual cuando faltan menos de 30 días
+            if (dias < 30) {
+                const timeBoxes = document.querySelectorAll('#contador-2026 .time-box');
+                timeBoxes.forEach(box => {
+                    box.style.animation = 'pulse 1s infinite';
+                });
+            }
+        }
+        
+        // Actualizar inmediatamente
+        actualizarContador2026();
+        
+        // Actualizar cada segundo
+        setInterval(actualizarContador2026, 1000);
+    }
+
+    // Inicializar contador principal
+    actualizarContador();
+    
+    // Actualizar contador principal cada segundo
+    setInterval(actualizarContador, 1000);
+</script>
+
 </body>
 </html>
